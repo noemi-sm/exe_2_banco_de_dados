@@ -1,0 +1,22 @@
+CREATE TABLE disciplinas(
+  id_disciplina INT PRIMARY KEY,
+  nome_disciplina VARCHAR(50) not NULL,
+  nome_professor VARCHAR(50) NOT NULL
+
+);
+
+CREATE TABLE alunos(
+  id_alunos INT PRIMARY KEY,
+  nome_alunos VARCHAR(50) not NULL,
+  disciplinas_id INT
+  CONSTRAINT FOREIGN key (disciplinas_id)
+  	REFERENCES disciplinas (id_disciplina)
+);
+
+INSERT INTO disciplinas( nome_disciplina, nome_professor) VALUES ('Banco de dados', 'Maria Alves');
+INSERT INTO disciplinas( nome_disciplina, nome_professor) VALUES ('pyton', 'Pietro Souza');
+INSERT INTO disciplinas( nome_disciplina, nome_professor) VALUES ('Poo', 'Bia Tavares');
+
+INSERT INTO alunos(nome_alunos, disciplinas_id) VALUES ('Cleiton', 2);
+INSERT INTO alunos(nome_alunos, disciplinas_id) VALUES ('Carol', NULL);
+INSERT INTO alunos(nome_alunos, disciplinas_id) VALUES ('Ruan', 2);
